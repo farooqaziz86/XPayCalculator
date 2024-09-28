@@ -34,6 +34,9 @@
         input[type="text"]:focus {
             border-color: #0056b3;
         }
+        #xpayServices {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -43,7 +46,6 @@
     
     <label for="salesInput">Enter your sales amount in PKR:</label><br>
     <input type="text" id="salesInput" placeholder="Enter amount..." oninput="formatInput(this)">
-    <p>Amount in Words: <span id="words">Zero Rupees Only</span></p>
 
     <div id="chargesSummary">
         <h3>Monthly Maintenance Charges (to be paid in advance)</h3>
@@ -62,6 +64,17 @@
     <div id="totalSummary">
         <h3>Total Charges: <span id="totalCharges">PKR 10,500</span></h3>
         <h3>Effective Percentage: <span id="effectivePercentage">0</span>%</h3>
+    </div>
+
+    <div id="xpayServices">
+        <h3>With XPay, you can offer the following:</h3>
+        <ul>
+            <li>✅ Easy, beautiful, and modern embedded checkout. Customers stay on your page - no slow redirects to a payment page.</li>
+            <li>✅ Tokenization: Customers won't have to enter their card details repeatedly.</li>
+            <li>✅ Subscriptions: You can offer subscriptions and recurring payments. For example, PKR 5,000 to be deducted automatically every month.</li>
+            <li>✅ Bin-based discounts: For example, a 5% discount on HBL Platinum cards.</li>
+            <li>✅ Payment Link API: Customers will receive an SMS, email, or WhatsApp message with a link to pay for their orders.</li>
+        </ul>
     </div>
 
     <script src="app.js"></script>
