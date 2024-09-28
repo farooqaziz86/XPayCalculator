@@ -1,17 +1,58 @@
 function formatCurrency(amount) {
-    return 'PKR ' + amount.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return 'PKR ' + amount.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+function numberToWords(num) {
+    const a = [
+        '', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 
+        'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 
+        'Seventeen', 'Eighteen', 'Nineteen'
+    ];
+    const b = [
+        '', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 
+        'Eighty', 'Ninety'
+    ];
+    const g = ['Hundred', 'Thousand'];
+
+    if (num === 0) return 'Zero Rupees Only';
+    
+    let words = '';
+
+    if (num >= 1000) {
+        words += a[Math.floor(num / 1000)] + ' Thousand ';
+        num %= 1000;
+    }
+
+    if (num >= 100) {
+        words += a[Math.floor(num / 100)] + ' Hundred ';
+        num %= 100;
+    }
+
+    if (num >= 20) {
+        words += b[Math.floor(num / 10)] + ' ';
+        num %= 10;
+    }
+
+    if (num > 0) {
+        words += a[num] + ' ';
+    }
+
+    words += 'Rupees Only';
+    return words.trim();
 }
 
 function formatInput(input) {
-    // Remove any non-digit characters (except for commas)
+    // Remove any non-digit characters
     let value = input.value.replace(/[^\d]/g, '');
     
     // Format the number and set it back to the input
     if (value) {
         value = Number(value); // Convert to number for proper formatting
-        input.value = formatCurrency(value / 100); // Convert cents to PKR format
+        input.value = formatCurrency(value); // Format as currency without decimals
+        document.getElementById('words').innerText = numberToWords(value); // Update words
     } else {
         input.value = '';
+        document.getElementById('words').innerText = 'Zero Rupees Only';
     }
 }
 
