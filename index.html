@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Merchant Charges Calculator</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .highlight-box {
+            border: 2px solid #007bff;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        h2 {
+            font-size: 1.2em; /* Smaller font size for section headers */
+        }
+    </style>
 </head>
 <body>
     <h1>Merchant Charges Calculator</h1>
@@ -17,7 +30,6 @@
     <p>Enter your sales amount in PKR:</p>
     <input type="text" id="salesAmount" placeholder="Enter Sales in PKR" oninput="formatInput(this)" />
     <div id="amountInWords">Amount in Words: <span id="words">Zero Rupees Only</span></div>
-    <button onclick="calculateCharges()">Calculate</button>
 
     <h2>Fixed Charges:</h2>
     <p>Base Amount: <span id="fixedBase">PKR 0</span></p>
@@ -27,8 +39,10 @@
     <p>Base Amount: <span id="variableBase">PKR 0</span></p>
     <p>FED (17%): <span id="variableFED">PKR 0</span></p>
 
-    <h2>Total Charges: <span id="totalCharges">PKR 0</span></h2>
-    <h2>Effective Percentage: <span id="effectivePercentage">0</span>%</h2>
+    <div class="highlight-box">
+        <h2>Total Charges: <span id="totalCharges">PKR 0</span></h2>
+        <h2>Effective Percentage: <span id="effectivePercentage">0</span>%</h2>
+    </div>
 
     <div style="margin-top: 20px;">
         <h3>With XPay, you can offer the following:</h3>
