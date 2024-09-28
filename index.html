@@ -15,18 +15,18 @@
     </div>
 
     <p>Enter your sales amount in PKR:</p>
-    <input type="number" id="salesAmount" placeholder="Enter Sales in PKR" />
+    <input type="text" id="salesAmount" placeholder="Enter Sales in PKR" oninput="formatInput(this)" />
     <button onclick="calculateCharges()">Calculate</button>
 
     <h2>Fixed Charges:</h2>
-    <p>Base Amount: PKR <span id="fixedBase">0</span></p>
-    <p>Sales Tax (5%): PKR <span id="fixedTax">0</span></p>
+    <p>Base Amount: <span id="fixedBase">PKR 0</span></p>
+    <p>Sales Tax (5%): <span id="fixedTax">PKR 0</span></p>
 
     <h2>Variable Charges (based on sales):</h2>
-    <p>Base Amount: PKR <span id="variableBase">0</span></p>
-    <p>FED (17%): PKR <span id="variableFED">0</span></p>
+    <p>Base Amount: <span id="variableBase">PKR 0</span></p>
+    <p>FED (17%): <span id="variableFED">PKR 0</span></p>
 
-    <h2>Total Charges: PKR <span id="totalCharges">0</span></h2>
+    <h2>Total Charges: <span id="totalCharges">PKR 0</span></h2>
     <h2>Effective Percentage: <span id="effectivePercentage">0</span>%</h2>
 
     <div style="margin-top: 20px;">
