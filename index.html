@@ -8,10 +8,29 @@
 </head>
 <body>
     <h1>Merchant Charges Calculator</h1>
+
+    <!-- Section to display tax rates -->
+    <div>
+        <p>Sales Tax: <strong>5%</strong></p>
+        <p>FED: <strong>17%</strong></p>
+    </div>
+
+    <!-- Input for sales amount -->
     <p>Enter your sales amount in PKR:</p>
     <input type="number" id="salesAmount" placeholder="Enter Sales in PKR" />
     <button onclick="calculateCharges()">Calculate</button>
-    <h2>Total Charges: <span id="totalCharges">PKR 0</span></h2>
+
+    <!-- Section to display detailed charges -->
+    <h2>Fixed Charges:</h2>
+    <p>Base Amount: PKR <span id="fixedBase">0</span></p>
+    <p>Sales Tax (5%): PKR <span id="fixedTax">0</span></p>
+
+    <h2>Variable Charges (based on sales):</h2>
+    <p>Base Amount: PKR <span id="variableBase">0</span></p>
+    <p>FED (17%): PKR <span id="variableFED">0</span></p>
+
+    <!-- Section to display total charges -->
+    <h2>Total Charges: PKR <span id="totalCharges">0</span></h2>
 
     <script src="app.js"></script>
 </body>
