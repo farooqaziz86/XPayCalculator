@@ -9,18 +9,15 @@
 <body>
     <h1>Merchant Charges Calculator</h1>
 
-    <!-- Section to display tax rates -->
     <div>
         <p>Sales Tax: <strong>5%</strong></p>
         <p>FED: <strong>17%</strong></p>
     </div>
 
-    <!-- Input for sales amount -->
     <p>Enter your sales amount in PKR:</p>
     <input type="number" id="salesAmount" placeholder="Enter Sales in PKR" />
     <button onclick="calculateCharges()">Calculate</button>
 
-    <!-- Section to display detailed charges -->
     <h2>Fixed Charges:</h2>
     <p>Base Amount: PKR <span id="fixedBase">0</span></p>
     <p>Sales Tax (5%): PKR <span id="fixedTax">0</span></p>
@@ -29,8 +26,19 @@
     <p>Base Amount: PKR <span id="variableBase">0</span></p>
     <p>FED (17%): PKR <span id="variableFED">0</span></p>
 
-    <!-- Section to display total charges -->
     <h2>Total Charges: PKR <span id="totalCharges">0</span></h2>
+    <h2>Effective Percentage: <span id="effectivePercentage">0</span>%</h2>
+
+    <div style="margin-top: 20px;">
+        <h3>With XPay, you can offer the following:</h3>
+        <ul>
+            <li>✅ Easy, beautiful, and modern embedded checkout. Customers stay on your page - no slow redirects to a payment page.</li>
+            <li>✅ Tokenization: Customers won't have to enter their card details repeatedly.</li>
+            <li>✅ Subscriptions: You can offer subscriptions and recurring payments. For example, PKR 5,000 to be deducted automatically every month.</li>
+            <li>✅ Bin-based discounts: For example, a 5% discount on HBL Platinum cards.</li>
+            <li>✅ Payment Link API: Customers will receive an SMS, email, or WhatsApp message with a link to pay for their orders.</li>
+        </ul>
+    </div>
 
     <script src="app.js"></script>
 </body>
