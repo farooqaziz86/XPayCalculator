@@ -1,15 +1,28 @@
 function calculateCharges() {
-    const salesAmount = document.getElementById('salesAmount').value;
+    const salesAmount = parseFloat(document.getElementById('salesAmount').value);
 
+    // Fixed Charges
     const fixedCharges = 10000;
     const salesTaxRate = 0.05;
     const variableRate = 0.029;
     const fedRate = 0.17;
 
-    const fixedWithTax = fixedCharges * (1 + salesTaxRate);
-    const variableWithFed = salesAmount * variableRate * (1 + fedRate);
+    // Calculate fixed charges
+    const fixedTax = fixedCharges * salesTaxRate;
+    const fixedTotal = fixedCharges + fixedTax;
 
-    const totalCharges = fixedWithTax + variableWithFed;
+    // Calculate variable charges
+    const variableBase = salesAmount * variableRate;
+    const variableFED = variableBase * fedRate;
+    const variableTotal = variableBase + variableFED;
 
-    document.getElementById('totalCharges').innerText = `PKR ${totalCharges.toFixed(2)}`;
+    // Total Charges
+    const totalCharges = fixedTotal + variableTotal;
+
+    // Update the HTML elements with calculated values
+    document.getElementById('fixedBase').innerText = fixedCharges.toFixed(2);
+    document.getElementById('fixedTax').innerText = fixedTax.toFixed(2);
+    document.getElementById('variableBase').innerText = variableBase.toFixed(2);
+    document.getElementById('variableFED').innerText = variableFED.toFixed(2);
+    document.getElementById('totalCharges').innerText = totalCharges.toFixed(2);
 }
