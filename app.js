@@ -83,16 +83,18 @@ function calculateCharges(salesAmount) {
     document.getElementById('variableFED').innerText = formatCurrency(variableFED);
     document.getElementById('variableTotal').innerText = formatCurrency(variableTotal); // Total Variable Charges
     document.getElementById('totalCharges').innerText = formatCurrency(totalCharges);
-    document.getElementById('effectivePercentage').innerText = effectivePercentage.toFixed(2);
+
+    // Display effective percentage only if salesAmount is greater than 0
+    document.getElementById('effectivePercentage').innerText = salesAmount > 0 ? effectivePercentage.toFixed(2) : '0';
 }
 
 function resetCharges() {
-    document.getElementById('fixedBase').innerText = formatCurrency(0);
-    document.getElementById('fixedTax').innerText = formatCurrency(0);
-    document.getElementById('fixedTotal').innerText = formatCurrency(0); // Total Fixed Charges
+    document.getElementById('fixedBase').innerText = formatCurrency(10000);
+    document.getElementById('fixedTax').innerText = formatCurrency(500);
+    document.getElementById('fixedTotal').innerText = formatCurrency(10500); // Total Fixed Charges
     document.getElementById('variableBase').innerText = formatCurrency(0);
     document.getElementById('variableFED').innerText = formatCurrency(0);
     document.getElementById('variableTotal').innerText = formatCurrency(0); // Total Variable Charges
-    document.getElementById('totalCharges').innerText = formatCurrency(0);
+    document.getElementById('totalCharges').innerText = formatCurrency(10500);
     document.getElementById('effectivePercentage').innerText = '0';
 }
