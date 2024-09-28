@@ -12,7 +12,7 @@ function numberToWords(num) {
         '', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 
         'Eighty', 'Ninety'
     ];
-    const g = ['Hundred', 'Thousand'];
+    const g = ['Hundred', 'Thousand', 'Million'];
 
     if (num === 0) return 'Zero Rupees Only';
     
