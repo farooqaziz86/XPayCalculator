@@ -12,31 +12,26 @@ function numberToWords(num) {
         '', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 
         'Eighty', 'Ninety'
     ];
-    const g = ['Hundred', 'Thousand', 'Million'];
-
+    
     if (num === 0) return 'Zero Rupees Only';
     
     let words = '';
-
     if (num >= 1000) {
         words += a[Math.floor(num / 1000)] + ' Thousand ';
         num %= 1000;
     }
-
     if (num >= 100) {
         words += a[Math.floor(num / 100)] + ' Hundred ';
         num %= 100;
     }
-
     if (num >= 20) {
         words += b[Math.floor(num / 10)] + ' ';
         num %= 10;
     }
-
     if (num > 0) {
         words += a[num] + ' ';
     }
-
+    
     words += 'Rupees Only';
     return words.trim();
 }
@@ -83,8 +78,10 @@ function calculateCharges(salesAmount) {
     // Update the HTML elements with calculated values
     document.getElementById('fixedBase').innerText = formatCurrency(fixedCharges);
     document.getElementById('fixedTax').innerText = formatCurrency(fixedTax);
+    document.getElementById('fixedTotal').innerText = formatCurrency(fixedTotal); // Total Fixed Charges
     document.getElementById('variableBase').innerText = formatCurrency(variableBase);
     document.getElementById('variableFED').innerText = formatCurrency(variableFED);
+    document.getElementById('variableTotal').innerText = formatCurrency(variableTotal); // Total Variable Charges
     document.getElementById('totalCharges').innerText = formatCurrency(totalCharges);
     document.getElementById('effectivePercentage').innerText = effectivePercentage.toFixed(2);
 }
@@ -92,8 +89,10 @@ function calculateCharges(salesAmount) {
 function resetCharges() {
     document.getElementById('fixedBase').innerText = formatCurrency(0);
     document.getElementById('fixedTax').innerText = formatCurrency(0);
+    document.getElementById('fixedTotal').innerText = formatCurrency(0); // Total Fixed Charges
     document.getElementById('variableBase').innerText = formatCurrency(0);
     document.getElementById('variableFED').innerText = formatCurrency(0);
+    document.getElementById('variableTotal').innerText = formatCurrency(0); // Total Variable Charges
     document.getElementById('totalCharges').innerText = formatCurrency(0);
     document.getElementById('effectivePercentage').innerText = '0';
 }
