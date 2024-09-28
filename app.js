@@ -2,8 +2,21 @@ function formatCurrency(amount) {
     return 'PKR ' + amount.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
+function formatInput(input) {
+    // Remove any non-digit characters (except for commas)
+    let value = input.value.replace(/[^\d]/g, '');
+    
+    // Format the number and set it back to the input
+    if (value) {
+        value = Number(value); // Convert to number for proper formatting
+        input.value = formatCurrency(value / 100); // Convert cents to PKR format
+    } else {
+        input.value = '';
+    }
+}
+
 function calculateCharges() {
-    const salesAmount = parseFloat(document.getElementById('salesAmount').value);
+    const salesAmount = parseFloat(document.getElementById('salesAmount').value.replace(/[^\d]/g, ''));
 
     // Fixed Charges
     const fixedCharges = 10000;
