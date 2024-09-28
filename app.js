@@ -1,3 +1,7 @@
+function formatCurrency(amount) {
+    return 'PKR ' + amount.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 function calculateCharges() {
     const salesAmount = parseFloat(document.getElementById('salesAmount').value);
 
@@ -19,10 +23,14 @@ function calculateCharges() {
     // Total Charges
     const totalCharges = fixedTotal + variableTotal;
 
+    // Effective percentage calculation
+    const effectivePercentage = (totalCharges / salesAmount) * 100;
+
     // Update the HTML elements with calculated values
-    document.getElementById('fixedBase').innerText = fixedCharges.toFixed(2);
-    document.getElementById('fixedTax').innerText = fixedTax.toFixed(2);
-    document.getElementById('variableBase').innerText = variableBase.toFixed(2);
-    document.getElementById('variableFED').innerText = variableFED.toFixed(2);
-    document.getElementById('totalCharges').innerText = totalCharges.toFixed(2);
+    document.getElementById('fixedBase').innerText = formatCurrency(fixedCharges);
+    document.getElementById('fixedTax').innerText = formatCurrency(fixedTax);
+    document.getElementById('variableBase').innerText = formatCurrency(variableBase);
+    document.getElementById('variableFED').innerText = formatCurrency(variableFED);
+    document.getElementById('totalCharges').innerText = formatCurrency(totalCharges);
+    document.getElementById('effectivePercentage').innerText = effectivePercentage.toFixed(2);
 }
