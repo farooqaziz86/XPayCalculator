@@ -4,55 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Merchant Charges Calculator</title>
-    <link rel="stylesheet" href="style.css">
     <style>
-        .highlight-box {
-            border: 2px solid #007bff;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2, h3 {
+            color: #333;
+        }
+        #chargesSummary {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        #totalSummary {
+            border: 2px solid #007BFF;
             padding: 10px;
             margin-top: 10px;
             background-color: #f9f9f9;
-            border-radius: 5px;
-        }
-
-        h2 {
-            font-size: 1.2em; /* Smaller font size for section headers */
         }
     </style>
 </head>
 <body>
     <h1>Merchant Charges Calculator</h1>
+    <p>Sales Tax: 5%</p>
+    <p>FED: 17%</p>
+    
+    <label for="salesInput">Enter your sales amount in PKR:</label><br>
+    <input type="text" id="salesInput" placeholder="Enter amount..." oninput="formatInput(this)">
+    <p>Amount in Words: <span id="words">Zero Rupees Only</span></p>
 
-    <div>
-        <p>Sales Tax: <strong>5%</strong></p>
-        <p>FED: <strong>17%</strong></p>
+    <div id="chargesSummary">
+        <h3>Monthly Maintenance Charges (to be paid in advance)</h3>
+        <p>Base Amount: <span id="fixedBase">PKR 10,000</span></p>
+        <p>Sales Tax (5%): <span id="fixedTax">PKR 500</span></p>
+        <p>Total Fixed Charges: <span id="fixedTotal">PKR 10,500</span></p>
     </div>
 
-    <p>Enter your sales amount in PKR:</p>
-    <input type="text" id="salesAmount" placeholder="Enter Sales in PKR" oninput="formatInput(this)" />
-    <div id="amountInWords">Amount in Words: <span id="words">Zero Rupees Only</span></div>
-
-    <h2>Fixed Charges:</h2>
-    <p>Base Amount: <span id="fixedBase">PKR 0</span></p>
-    <p>Sales Tax (5%): <span id="fixedTax">PKR 0</span></p>
-
-    <h2>Variable Charges (based on sales):</h2>
-    <p>Base Amount: <span id="variableBase">PKR 0</span></p>
-    <p>FED (17%): <span id="variableFED">PKR 0</span></p>
-
-    <div class="highlight-box">
-        <h2>Total Charges: <span id="totalCharges">PKR 0</span></h2>
-        <h2>Effective Percentage: <span id="effectivePercentage">0</span>%</h2>
+    <div id="chargesSummary">
+        <h3>Variable Charges (based on sales)</h3>
+        <p>Base Amount: <span id="variableBase">PKR 2,900</span></p>
+        <p>FED (17%): <span id="variableFED">PKR 493</span></p>
+        <p>Total Variable Charges: <span id="variableTotal">PKR 3,393</span></p>
     </div>
 
-    <div style="margin-top: 20px;">
-        <h3>With XPay, you can offer the following:</h3>
-        <ul>
-            <li>✅ Easy, beautiful, and modern embedded checkout. Customers stay on your page - no slow redirects to a payment page.</li>
-            <li>✅ Tokenization: Customers won't have to enter their card details repeatedly.</li>
-            <li>✅ Subscriptions: You can offer subscriptions and recurring payments. For example, PKR 5,000 to be deducted automatically every month.</li>
-            <li>✅ Bin-based discounts: For example, a 5% discount on HBL Platinum cards.</li>
-            <li>✅ Payment Link API: Customers will receive an SMS, email, or WhatsApp message with a link to pay for their orders.</li>
-        </ul>
+    <div id="totalSummary">
+        <h3>Total Charges: <span id="totalCharges">PKR 13,893</span></h3>
+        <h3>Effective Percentage: <span id="effectivePercentage">0</span>%</h3>
     </div>
 
     <script src="app.js"></script>
