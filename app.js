@@ -50,15 +50,15 @@ function formatInput(input) {
         value = Number(value); // Convert to number for proper formatting
         input.value = formatCurrency(value); // Format as currency without decimals
         document.getElementById('words').innerText = numberToWords(value); // Update words
+        calculateCharges(value); // Dynamically calculate charges
     } else {
         input.value = '';
         document.getElementById('words').innerText = 'Zero Rupees Only';
+        resetCharges(); // Reset charges if no value
     }
 }
 
-function calculateCharges() {
-    const salesAmount = parseFloat(document.getElementById('salesAmount').value.replace(/[^\d]/g, ''));
-
+function calculateCharges(salesAmount) {
     // Fixed Charges
     const fixedCharges = 10000;
     const salesTaxRate = 0.05;
@@ -87,4 +87,13 @@ function calculateCharges() {
     document.getElementById('variableFED').innerText = formatCurrency(variableFED);
     document.getElementById('totalCharges').innerText = formatCurrency(totalCharges);
     document.getElementById('effectivePercentage').innerText = effectivePercentage.toFixed(2);
+}
+
+function resetCharges() {
+    document.getElementById('fixedBase').innerText = formatCurrency(0);
+    document.getElementById('fixedTax').innerText = formatCurrency(0);
+    document.getElementById('variableBase').innerText = formatCurrency(0);
+    document.getElementById('variableFED').innerText = formatCurrency(0);
+    document.getElementById('totalCharges').innerText = formatCurrency(0);
+    document.getElementById('effectivePercentage').innerText = '0';
 }
